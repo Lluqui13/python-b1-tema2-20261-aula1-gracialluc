@@ -68,12 +68,26 @@ Exemple:
 
 def calculate_max_and_min(list_numbers):
     # Write here your code
-    pass
+    if len(list_numbers) == 0:
+        raise ValueError
+    greater = list_numbers[0]
+    lesser = list_numbers[0]
+    for number in list_numbers:
+        if type(number) == str:
+            raise TypeError
+        else:
+            if greater < number:
+                greater = number
+            elif lesser > number:
+                lesser = number
+    print(f"Lesser: {lesser}", f"Greater: {greater}")
+    return lesser, greater
+
 
 
 # Si quieres probar tu código, descomenta las siguientes líneas y ejecuta el script
 # Si vols provar el teu codi, descomenta les línies següents i executa l'script
 
-# print(
-#     "\nResult: ", calculate_max_and_min([10, 5.1, 0, -2, 31, 55, 70, -10, 200, -55.55])
-# )
+print(
+    "\nResult: ", calculate_max_and_min([10, 5.1, 0, -2, 31, 55, 70, -10, 200, -55.55])
+)
